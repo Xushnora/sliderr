@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import obj from "../house"
 
 function SliderBox(){
-    const [count, setCount] = useState(1)
+    const [count, setCount] = useState(0)
 
     const handlerRightBtn = () => {
         setCount(count + 1)

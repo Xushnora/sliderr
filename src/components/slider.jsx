@@ -2,41 +2,33 @@ import React, { useEffect, useState } from "react";
 import obj from "../house"
 
 function SliderBox(){
-
-    const [slider, setSlider] = useState([])
-    const [active, setActive] = useState(1)
-    const [left, setLeft] = useState(1)
     const [count, setCount] = useState(1)
-
-    useEffect(() => {
-        setSlider(obj)
-    }, [])
 
     const handlerRightBtn = () => {
         setCount(count + 1)
-        if(count <= slider.length - 3) {
-            setActive(-(300 * count))
-        } 
     }
 
     const handlerLeftBtn = () => {
-        setLeft(count - 2)
-        setActive(active / left)
+        setCount(count - 1);
     }
 
     return(
         <div className="slider">
             <div className="slider__leftBox">
-                <h1>Hello Carousel</h1>
+                <div className="slider__infoBox infos">
+                    <h2 className="infos__title">Some useful blogposts</h2>
+                    <p className="infos__text">Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text</p>
+                    <a className="infos__link">Read more</a>
+                </div>
             </div>
             <div className="slider__rightBox">
-                <button onClick={handlerRightBtn} className="slider__rightBtn" style={{display: `${(count <= slider.length - 3 || count === 1) ? "block" : "none" }`}}>
+                <button onClick={handlerRightBtn} className="slider__rightBtn" style={{display: `${(count !== obj.length - 3) ? "block" : "none" }`}}>
                     <i className='bx bx-chevron-right'></i>
                 </button>
-                <button onClick={handlerLeftBtn} className="slider__leftBtn" style={{display: `${(count < slider.length - 2) ? "none" : "block" }`}}>
+                <button onClick={handlerLeftBtn} className="slider__leftBtn" style={{display: `${(count === 0) ? "none" : "block" }`}}>
                     <i className='bx bx-chevron-left'></i>
                 </button>
-                <ul  style={{transform: `translateX(${active}px)`}} className="slider__list">
+                <ul  style={{transform: `translateX(${-count * 300}px)`}} className="slider__list">
                     {obj.map((item, i) => {
                         return (
                             <li key={i} className="slider__item">
@@ -55,4 +47,4 @@ function SliderBox(){
     )
 }
 
-export default SliderBox
+export default SliderBox;

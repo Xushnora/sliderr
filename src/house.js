@@ -34,7 +34,7 @@ const obj = [
         title: "Blog6",
         text: "Lorem ipsum dolor sit amet.",
         img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQtdluutLO8ySPOBgixf85UO1nrc6Bx1b5gbZFqewlkHEWKvy2PX0yqe2oXgrq43EGiu2g&usqp=CAU"
-    }
+    },
 ]
 
 export default obj;
